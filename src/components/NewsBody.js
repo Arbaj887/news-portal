@@ -16,9 +16,9 @@ function NewsBody() {
 
     useEffect(() => {
         async function fetchNews() {
-            try {
+            try {      
                 setLoading(true);
-                const result = await axios.get(`https://api.worldnewsapi.com/search-news?api-key=f2a36657ba644dcd94b51b5cb59de093&text=${categories}&page=${currentPage}&number=${perPage}`);
+                const result = await axios.get(`https://api.worldnewsapi.com/search-news?api-key=${process.env.REACT_APP_NEWSAPI}&text=${categories}&page=${currentPage}&number=${perPage}`);
                 
                 const filteredData = result.data.news.filter(item => item.author !== null);
                 setGetNews(filteredData);
@@ -26,8 +26,8 @@ function NewsBody() {
                 setLoading(false);
                 
             } catch (err) {
-                alert('Please reload or wait for some time');
-                console.log(err.response.error)
+                alert('Please reload or wait for some time or this occur due to api search limit');
+                console.log(err)
                 setLoading(false);
             }
         }

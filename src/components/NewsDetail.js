@@ -22,7 +22,7 @@ function NewsDetail() {
       <p>{selectedNews.autors}</p>
       <p>Sources to original website News :<a href={selectedNews.url}> {selectedNews.url}</a></p>
       <img src={selectedNews.image} alt='Unable to Render'/>
-      <p> {selectedNews.summary}</p>
+      <b> {selectedNews.summary}</b>
       <p> {selectedNews.text}</p>
       
     </div>
